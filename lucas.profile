@@ -125,29 +125,15 @@ function lucas_profile_task_list() {
  *   modify the $task, otherwise discarded.
  */
 function lucas_profile_tasks(&$task, $url) {
-  _lucas_build_directories();
   _lucas_config_page();
   _lucas_config_roles();
   _lucas_config_perms();
   _lucas_config_filter();
   _lucas_config_wysiwyg();
-  _lucas_config_imce();
   _lucas_config_theme();
   _lucas_config_vars();
   _lucas_create_nodes();
   _lucas_cleanup();
-}
-
-/**
- * Create necessary directories
- */
-function _lucas_build_directories() {
-  $dirs = array('ctools', 'ctools/css', 'pictures', 'imagecache', 'imce', 'css', 'js');
-  
-  foreach ($dirs as $dir) {
-    $dir = file_directory_path() . '/' . $dir;
-    file_check_directory($dir, TRUE);
-  }
 }
 
 /**

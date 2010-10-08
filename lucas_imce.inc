@@ -82,17 +82,17 @@ function lucas_imce_settings() {
       ),
     ),
     '3' => array( 
-      'name' => 'Authenticated User'
+      'name' => 'Authenticated User',
       'usertab' => 1,
       'filesize' => 1,
       'quota' => 2,
       'tuquota' => 0,
       'extensions' => 'gif png jpg jpeg',
-      'dimensions' => '800x600'
+      'dimensions' => '800x600',
       'filenum' => 1,
       'directories' => array( 
-        '0' => array( 
-          'name' => 'imce/u%uid'
+        '0' => array(
+          'name' => 'imce/u%uid',
           'subnav' => 0,
           'browse' => 1,
           'upload' => 1,
@@ -111,7 +111,6 @@ function lucas_imce_settings() {
       ),
     ),
   );
-
   $settings['imce_roles_profiles'] = array(
     '3' => array(
       'pid' => 2,
@@ -121,7 +120,7 @@ function lucas_imce_settings() {
     ),
     '1' => array( 
       'pid' => 0,
-    )
+    ),
   );
   $settings['imce_settings_absurls'] = 0;
   $settings['imce_settings_replace'] = '0';
