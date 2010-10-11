@@ -111,8 +111,7 @@ projects[weeks_blog][subdir] = "custom"
 projects[blogbuzz][subdir] = "contrib"
 projects[blogbuzz][type] = "theme"
 projects[blogbuzz][version] = "2.0"
-projects[blogbuzz][patch][] = "patches/blogbuzz_verified.patch"
-; http://gist.github.com/gists/620533/download
+projects[blogbuzz][patch][] = "http://drupal.org/files/issues/blogbuzz_verified.patch"
 
 projects[tao][location] = "http://code.developmentseed.org/fserver"
 projects[tao][subdir] = "contrib"
