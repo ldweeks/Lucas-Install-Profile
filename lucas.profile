@@ -1,6 +1,18 @@
 <?php
 // $Id$
 
+/**
+ * TODO: 
+ * - google analytics download
+ * - patch for unverified comment in theme I WAS IN THE MIDDLE OF THIS!
+ * - comment settings: require that the user enter information about himself
+ * - error reporting to log only
+ * - add the lucasweeks module
+ * - open external links in new window
+ * - save and edit settings
+ * - remove theme settings from my blog feature
+*/
+
 // Define the default WYSIWYG editor
 define('LUCAS_EDITOR', 'ckeditor');
 
@@ -62,10 +74,10 @@ function lucas_profile_modules() {
     'ctools',
     'extlink',
     'features',
-    //'getid3',
     //'google_analytics', //Not sure why, but it doesn't want to work
     'ie6update',
     'imageapi',
+    'imageapi_gd',
     'imagecache',
     'imagefield',
     'image_resize_filter',
@@ -132,7 +144,6 @@ function lucas_profile_tasks(&$task, $url) {
   _lucas_config_wysiwyg();
   _lucas_config_theme();
   _lucas_config_vars();
-  _lucas_create_nodes();
   _lucas_cleanup();
 }
 
@@ -289,7 +300,7 @@ function _lucas_config_filter() {
  */
 function _lucas_config_wysiwyg() {
   // Load external file containing editor settings
-  include_once('lucas_editor.inc'); 
+  include_once('lucas_editor_settings.inc'); 
   
   // Add settings for 'Filtered HTML'
   $item = new stdClass;
@@ -312,14 +323,17 @@ function _lucas_config_wysiwyg() {
 function _lucas_config_theme() {
   // Disable garland
   db_query("UPDATE {system} SET status = 0 WHERE type = 'theme' and name = '%s'", 'garland');
-  
-  
+
   // Enable Blogbuzz theme
   db_query("UPDATE {system} SET status = 1 WHERE type = 'theme' and name = '%s'", LUCAS_THEME);
-  
+
   // Set BlogBuzz theme as the default
   variable_set('theme_default', LUCAS_THEME);
-  
+
+  // Set Rubik as the admin theme, and use it for node editing
+  variable_set('admin_theme', 'rubik');
+  variable_set('node_admin_theme', 1);
+
   // Refresh registry
   list_themes(TRUE);
   drupal_rebuild_theme_registry();
@@ -331,63 +345,17 @@ function _lucas_config_theme() {
  * These should be set but not enforced by Strongarm
  */
 function _lucas_config_vars() {
-  // Load external file containing imce settings
-  include_once('lucas_imce.inc');
+  // Load external files containing various settings
+  include_once('lucas_imce_settings.inc');
+  include_once('lucas_other_settings.inc');
 
-  // IMCE settings
-  $imce_settings = lucas_imce_settings();
-  foreach ($imce_settings as $name => $value) {
+  $settings[] = lucas_imce_settings();
+  $settings[] = lucas_other_settings();
+
+  // Apply settings
+  foreach ($settings as $name => $value) {
     variable_set($name, $value);
   }
-
-  // Set default homepage
-  variable_set('site_frontpage', LUCAS_FRONTPAGE);
-  
-  // Tell getid3 where the library is
-  //variable_set('getid3_path', 'profiles/lucas/libraries/getid3/getid3');
-    
-  // Preprocess JS and CSS files
-  variable_set('preprocess_css', 1);
-  variable_set('preprocess_js', 1);
-  
-  // Keep errors in the log and off the screen
-  variable_set('error_level', 0);    
-}
-
-// Create some nodes.
-function _lucas_create_nodes() {
-  // Add an instructional page and set it to the front page.
-  $node = new stdClass();
-  $node->title = 'Welcome to your new site!';
-  $node->body = "How did it go?";
-  $node->type = 'page';
-  $node->created = time();
-  $node->changed = time();
-  $node->status = 1;
-  $node->promote = 1;
-  $node->sticky = 0;
-  $node->format = 1;
-  $node->uid = 1;
-  $node->language = 'en';
-  node_save($node);
-
-  variable_set('site_frontpage', 'node/1');
-
-  $node = new stdClass();
-  $node->title = 'About Us';
-  $node->body = "Here is where you learn all about us.";
-  $node->type = 'page';
-  $node->created = time();
-  $node->changed = time();
-  $node->status = 1;
-  $node->promote = 0;
-  $node->sticky = 0;
-  $node->format = 1;
-  $node->uid = 1;
-  $node->language = 'en';
-  node_save($node);
-
-  taxonomy_node_save($node, array(1));
 }
 
 /**

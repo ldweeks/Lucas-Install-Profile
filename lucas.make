@@ -98,7 +98,6 @@ projects[views_bulk_operations][version] = "1.10"
 projects[wysiwyg][subdir] = "contrib"
 projects[wysiwyg][version] = "2.1"
 
-
 ; CUSTOM PROJECTS
 
 projects[weeks_blog][type] = module
@@ -108,8 +107,12 @@ projects[weeks_blog][subdir] = "custom"
 
 ; THEMES
 
+; patched
 projects[blogbuzz][subdir] = "contrib"
+projects[blogbuzz][type] = "theme"
 projects[blogbuzz][version] = "2.0"
+projects[blogbuzz][patch][] = "patches/blogbuzz_verified.patch"
+; http://gist.github.com/gists/620533/download
 
 projects[tao][location] = "http://code.developmentseed.org/fserver"
 projects[tao][subdir] = "contrib"
@@ -152,10 +155,3 @@ libraries[tinymce][directory_name] = "tinymce"
 libraries[ckeditor][download][type] = "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.4.1/ckeditor_3.4.1.zip"
 libraries[ckeditor][directory_name] = "ckeditor"
-
-; getid3
-; Doesn't work...
-; libraries[getid3][download][type] = "get"
-; libraries[jquery_ui][download][url] = "http://sourceforge.net/projects/getid3/files/getID3%28%29%201.x/1.7.9/getid3-1.7.9.zip"
-; libraries[getid3][directory_name] = "getid3"
-; libraries[getid3][destination] = "modules/contrib/getid3"
