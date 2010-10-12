@@ -45,6 +45,9 @@ function lucas_other_settings() {
   // Open External Links in a new window (admin/settings/extlink)
   $settings['extlink_target'] = '_blank';
 
+  // Save and Edit Settings
+  $settings['save_edit_node_types'] = serialize(array('blog_post' => 'blog_post', 'book' => 'book', 'page' => 'page'));
+
   // Site offline message 
   $settings['site_offline_message']	= "We're currently under maintenance, but we'll be back shortly. Grab a margarita and relax while we do our thing. Thanks you for your patience!";
 

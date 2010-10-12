@@ -111,7 +111,7 @@ projects[weeks_blog][subdir] = "custom"
 projects[blogbuzz][subdir] = "contrib"
 projects[blogbuzz][type] = "theme"
 projects[blogbuzz][version] = "2.0"
-projects[blogbuzz][patch][] = "http://cgsbloomington.com/patches/blogbuzz_verified.patch"
+projects[blogbuzz][patch][] = "http://cgsbloomington.com/patches/blogbuzz_comments.patch"
 
 projects[tao][location] = "http://code.developmentseed.org/fserver"
 projects[tao][subdir] = "contrib"

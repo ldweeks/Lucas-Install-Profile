@@ -3,18 +3,12 @@
 
 /**
  * TODO: 
- * - google analytics download
- * - patch for unverified comment in theme I WAS IN THE MIDDLE OF THIS!
- * - comment settings: require that the user enter information about himself
- * - error reporting to log only
- * - add the lucasweeks module
- * - open external links in new window
- * - save and edit settings
  * - remove theme settings from my blog feature
+ * - google analytics download
 */
 
 // Define the default WYSIWYG editor
-define('LUCAS_EDITOR', 'ckeditor');
+define('LUCAS_EDITOR', 'tinymce');
 
 // Define the allowed filtered html tags
 define('LUCAS_FILTERED_HTML', '<a> <br> <em> <p> <strong> <ul> <ol> <li>');
