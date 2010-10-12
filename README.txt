@@ -1,0 +1,1 @@
+There are a few places where it doesn't make sense to automate setup with an installation profile, but to instead depend on the site builder to click a few buttons. Basically, anywhere there is sensitive password information.

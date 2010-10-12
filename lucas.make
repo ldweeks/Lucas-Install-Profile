@@ -18,13 +18,16 @@ projects[cck][subdir] = "contrib"
 projects[cck][version] = "2.8"
 
 projects[comment_notify][subdir] = "contrib"
-projects[comment_notify][version] = "1.4"
+projects[comment_notify][version] = "1.5"
 
 projects[context][subdir] = "contrib"
 projects[context][version] = "3.0"
 
 projects[ctools][subdir] = "contrib"
 projects[ctools][version] = "1.7"
+
+;projects[emfield][subdir] = "contrib"
+;projects[emfield][version] = "2.1"
 
 projects[extlink][subdir] = "contrib"
 projects[extlink][version] = "1.11"
@@ -34,9 +37,6 @@ projects[features][version] = "1.0"
 
 projects[filefield][subdir] = "contrib"
 projects[filefield][version] = "3.7"
-
-projects[getid3][subdir] = "contrib"
-projects[getid3][version] = "1.4"
 
 projects[google_analytics][subdir] = "contrib"
 projects[google_analytics][version] = "3.0"
@@ -64,6 +64,12 @@ projects[imce_wysiwyg][version] = "1.1"
 
 projects[jquery_ui][subdir] = "contrib"
 projects[jquery_ui][version] = "1.3"
+
+;projects[media_vimeo][subdir] = "contrib"
+;projects[media_vimeo][version] = "1.1"
+
+;projects[media_bliptv][subdir] = "contrib"
+;projects[media_bliptv][version] = "1.0-alpha1"
 
 projects[mollom][subdir] = "contrib"
 projects[mollom][version] = "1.14"
@@ -112,6 +118,7 @@ projects[blogbuzz][subdir] = "contrib"
 projects[blogbuzz][type] = "theme"
 projects[blogbuzz][version] = "2.0"
 projects[blogbuzz][patch][] = "http://cgsbloomington.com/patches/blogbuzz_comments.patch"
+projects[blogbuzz][patch][] = "http://cgsbloomington.com/patches/blogbuzz_designby.patch"
 
 projects[tao][location] = "http://code.developmentseed.org/fserver"
 projects[tao][subdir] = "contrib"

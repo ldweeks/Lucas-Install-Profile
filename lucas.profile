@@ -68,6 +68,7 @@ function lucas_profile_modules() {
     'ctools',
     'extlink',
     'features',
+    'filefield',
     //'google_analytics', //Not sure why, but it doesn't want to work
     'ie6update',
     'imageapi',
@@ -77,6 +78,7 @@ function lucas_profile_modules() {
     'image_resize_filter',
     'imce',
     'imce_wysiwyg',
+    'jquery_ui',
     'mollom',
     'pathauto',
     'save_edit',
@@ -91,8 +93,8 @@ function lucas_profile_modules() {
     // CCK
     'content', 'nodereference', 'number', 'text', 'optionwidgets',
 
-    // Filefield
-    'filefield', 'filefield_meta',
+    // Embedded Media
+    //'emfield', 'emvideo', 'media_bliptv', 'media_vimeo', 
 
     // Token
     'token', 'token_actions',
