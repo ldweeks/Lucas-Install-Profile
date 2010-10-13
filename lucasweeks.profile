@@ -25,7 +25,7 @@ define('LUCAS_FRONTPAGE', 'blog');
 /**
  * Implementation of hook_profile_details().
  */
-function lucas_profile_details() {
+function lucasweeks_profile_details() {
   return array(
     'name' => 'Lucas Weeks',
     'description' => 'Personal blog for Lucas Weeks and family.',
@@ -41,7 +41,7 @@ function lucas_profile_details() {
  * @return
  *  An array of modules to be enabled.
  */
-function lucas_profile_modules() {
+function lucasweeks_profile_modules() {
   return array(
     // Core Drupal modules:
     'block',
@@ -113,7 +113,7 @@ function lucas_profile_modules() {
  *   while the values will be displayed to the user in the installer
  *   task list.
  */
-function lucas_profile_task_list() {
+function lucasweeks_profile_task_list() {
 
 }
 
@@ -132,21 +132,21 @@ function lucas_profile_task_list() {
  *   An optional HTML string to display to the user. Only used if you
  *   modify the $task, otherwise discarded.
  */
-function lucas_profile_tasks(&$task, $url) {
-  _lucas_config_page();
-  _lucas_config_roles();
-  _lucas_config_perms();
-  _lucas_config_filter();
-  _lucas_config_wysiwyg();
-  _lucas_config_theme();
-  _lucas_config_vars();
-  _lucas_cleanup();
+function lucasweeks_profile_tasks(&$task, $url) {
+  _lucasweeks_config_page();
+  _lucasweeks_config_roles();
+  _lucasweeks_config_perms();
+  _lucasweeks_config_filter();
+  _lucasweeks_config_wysiwyg();
+  _lucasweeks_config_theme();
+  _lucasweeks_config_vars();
+  _lucasweeks_cleanup();
 }
 
 /**
  * Setup the page content type.
  */
-function _lucas_config_page() {
+function _lucasweeks_config_page() {
   require_once 'modules/comment/comment.module';
 
   // Insert the page node type into the database.
@@ -173,7 +173,7 @@ function _lucas_config_page() {
 /**
  * Configure roles
  */
-function _lucas_config_roles() {
+function _lucasweeks_config_roles() {
   // Make sure default roles are set right (just in case)
   db_query("UPDATE {role} SET rid = 1 WHERE name = 'anonymous user'");
   db_query("UPDATE {role} SET rid = 2 WHERE name = 'authenticated user'");
@@ -190,7 +190,7 @@ function _lucas_config_roles() {
  * 
  * Avoid using Features because we expect these to be changed
  */
-function _lucas_config_perms() {
+function _lucasweeks_config_perms() {
   // Load external permissions file
   include_once('lucas_perms.inc');
   
@@ -233,7 +233,7 @@ function _lucas_config_perms() {
 /**
  * Configure input filters
  */
-function _lucas_config_filter() {
+function _lucasweeks_config_filter() {
   // Force filter format and filter IDs
   // Necessary because Drupal doesn't use machine names for everything
   
@@ -294,7 +294,7 @@ function _lucas_config_filter() {
 /**
  * Configure wysiwyg
  */
-function _lucas_config_wysiwyg() {
+function _lucasweeks_config_wysiwyg() {
   // Load external file containing editor settings
   include_once('lucas_editor_settings.inc'); 
   
@@ -316,7 +316,7 @@ function _lucas_config_wysiwyg() {
 /**
  * Configure theme
  */
-function _lucas_config_theme() {
+function _lucasweeks_config_theme() {
   // Disable garland
   db_query("UPDATE {system} SET status = 0 WHERE type = 'theme' and name = '%s'", 'garland');
 
@@ -340,7 +340,7 @@ function _lucas_config_theme() {
  * 
  * These should be set but not enforced by Strongarm
  */
-function _lucas_config_vars() {
+function _lucasweeks_config_vars() {
   // Load external files containing various settings
   include_once('lucas_imce_settings.inc');
   include_once('lucas_other_settings.inc');
@@ -357,7 +357,7 @@ function _lucas_config_vars() {
 /**
  * Various actions needed to clean up after the installation
  */
-function _lucas_cleanup() {
+function _lucasweeks_cleanup() {
   
   // Rebuild node types
   node_types_rebuild();
