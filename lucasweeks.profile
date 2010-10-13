@@ -80,6 +80,7 @@ function lucasweeks_profile_modules() {
     'imce_wysiwyg',
     'jquery_ui',
     'mollom',
+    'node_export',
     'pathauto',
     'save_edit',
     'smtp',

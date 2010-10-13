@@ -74,6 +74,9 @@ projects[jquery_ui][version] = "1.3"
 projects[mollom][subdir] = "contrib"
 projects[mollom][version] = "1.14"
 
+projects[node_export][subdir] = "contrib"
+projects[node_export][version] = "2.21"
+
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.5"
 
