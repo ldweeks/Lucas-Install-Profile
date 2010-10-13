@@ -14,15 +14,15 @@ if [ -f lucas.make ]; then
 
   if [ $SELECTION = "1" ]; then
 
-    # Run lucas.make only.
+    # Run lucasweeks.make only.
     echo "Building Lucas install profile..."
-    drush make --working-copy --no-core --contrib-destination=. lucas.make
+    drush make --working-copy --no-core --contrib-destination=. lucasweeks.make
 
   elif [ $SELECTION = "2" ]; then
 
     # Generate a complete tar.gz of Drupal + Lucas.
     echo "Building Lucas distribution..."
-    drush make --yes --tar lucas.make
+    drush make --yes --tar lucasweeks.make
 
   else
    echo "Invalid selection."
