@@ -108,7 +108,7 @@ projects[wysiwyg][version] = "2.1"
 
 projects[weeks_blog][type] = module
 projects[weeks_blog][download][type] = git
-projects[weeks_blog][download][url] = git@github.com:ldweeks/weeks_blog.git
+projects[weeks_blog][download][url] = git://github.com/ldweeks/weeks_blog.git
 projects[weeks_blog][subdir] = "custom"
 
 ; THEMES
